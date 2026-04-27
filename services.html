@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Services - AnnuMakeover</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    body {
+      background: linear-gradient(to right, #fff, #fff5f8);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .navbar, .footer {
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .navbar-brand {
+      color: #ff4d6d;
+      font-weight: bold;
+    }
+
+    h2, h4 {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card img {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #ff4d6d;
+      font-size: 18px;
+    }
+
+    .btn-custom {
+      background: linear-gradient(45deg, #ff4d6d, #ff758f);
+      border: none;
+      color: #fff;
+      border-radius: 30px;
+      padding: 8px 18px;
+    }
+
+    .btn-custom:hover {
+      opacity: 0.9;
+    }
+
+    .badge-home {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #ff4d6d;
+      padding: 6px 10px;
+      font-size: 12px;
+      border-radius: 20px;
+    }
+
+    .section {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">AnnuMakeover</a>
+    <div>
+      <a href="index.html" class="btn">Home</a>
+      <a href="services.html" class="btn">Services</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+<h2 class="text-center mt-5">Our Services</h2>
+
+<!-- Makeup -->
+<div class="section">
+<h4>Makeup Services</h4>
+<div class="row">
+
+<div class="col-md-4 mb-4">
+<div class="card">
+<span class="badge badge-home">Home Service</span>
+<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9">
+<div class="card-body">
+<h5>Reception Makeup</h5>
+<p class="price">₹10,000</p>
+<button class="btn btn-custom book-btn" data-service="Reception Makeup">Book Now</button>
+</div>
+</div>
+</div>
+
+<div class="col-md-4 mb-4">
+<div class="card">
+<span class="badge badge-home">Home Service</span>
+<img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796">
+<div class="card-body">
+<h5>Bridal Makeup</h5>
+<p class="price">₹12,000</p>
+<button class="btn btn-custom book-btn" data-service="Bridal Makeup">Book Now</button>
+</div>
+</div>
+</div>
+
+<div class="col-md-4 mb-4">
+<div class="card">
+<span class="badge badge-home">Home Service</span>
+<img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f">
+<div class="card-body">
+<h5>Party Makeup</h5>
+<p class="price">₹3,000</p>
+<button class="btn btn-custom book-btn" data-service="Party Makeup">Book Now</button>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- Facial -->
+<div class="section">
+<h4>Facial Services</h4>
+<div class="row">
+
+<!-- Repeat card -->
+<div class="col-md-4 mb-4">
+<div class="card">
+<span class="badge badge-home">Home Service</span>
+<img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881">
+<div class="card-body">
+<h5>Facial</h5>
+<p class="price">₹3,650</p>
+<button class="btn btn-custom book-btn" data-service="Facial">Book Now</button>
+</div>
+</div>
+</div>
+
+<div class="col-md-4 mb-4"><div class="card"><span class="badge badge-home">Home Service</span><img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b"><div class="card-body"><h5>O3+ Facial</h5><p class="price">₹2,500</p><button class="btn btn-custom book-btn" data-service="O3+ Facial">Book Now</button></div></div></div>
+
+<div class="col-md-4 mb-4"><div class="card"><span class="badge badge-home">Home Service</span><img src="https://images.unsplash.com/photo-1598970434795-0c54fe7c0642"><div class="card-body"><h5>Lotus Gold Facial</h5><p class="price">₹1,500</p><button class="btn btn-custom book-btn" data-service="Lotus Gold Facial">Book Now</button></div></div></div>
+
+<div class="col-md-4 mb-4"><div class="card"><span class="badge badge-home">Home Service</span><img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883"><div class="card-body"><h5>Kanpeki Facial</h5><p class="price">₹2,500</p><button class="btn btn-custom book-btn" data-service="Kanpeki Facial">Book Now</button></div></div></div>
+
+<div class="col-md-4 mb-4"><div class="card"><span class="badge badge-home">Home Service</span><img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6"><div class="card-body"><h5>Fruits Facial</h5><p class="price">₹900</p><button class="btn btn-custom book-btn" data-service="Fruits Facial">Book Now</button></div></div></div>
+
+<div class="col-md-4 mb-4"><div class="card"><span class="badge badge-home">Home Service</span><img src="https://images.unsplash.com/photo-1556228724-4a6d2c0d63d7"><div class="card-body"><h5>Aroma Facial</h5><p class="price">₹1,500</p><button class="btn btn-custom book-btn" data-service="Aroma Facial">Book Now</button></div></div></div>
+
+<div class="col-md-4 mb-4"><div class="card"><span class="badge badge-home">Home Service</span><img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908"><div class="card-body"><h5>VLCC Facial</h5><p class="price">₹1,500</p><button class="btn btn-custom book-btn" data-service="VLCC Facial">Book Now</button></div></div></div>
+
+<div class="col-md-4 mb-4"><div class="card"><span class="badge badge-home">Home Service</span><img src="https://images.unsplash.com/photo-1556228578-567ba127e37c"><div class="card-body"><h5>Raaga De-Tan</h5><p class="price">₹500</p><button class="btn btn-custom book-btn" data-service="Raaga De-Tan">Book Now</button></div></div></div>
+
+<div class="col-md-4 mb-4"><div class="card"><span class="badge badge-home">Home Service</span><img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6"><div class="card-body"><h5>O3+ De-Tan</h5><p class="price">₹650</p><button class="btn btn-custom book-btn" data-service="O3+ De-Tan">Book Now</button></div></div></div>
+
+<div class="col-md-4 mb-4"><div class="card"><span class="badge badge-home">Home Service</span><img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908"><div class="card-body"><h5>VLCC De-Tan</h5><p class="price">₹350</p><button class="btn btn-custom book-btn" data-service="VLCC De-Tan">Book Now</button></div></div></div>
+
+</div>
+</div>
+
+<!-- Body -->
+<div class="section">
+<h4>Body Services</h4>
+<div class="row">
+
+<div class="col-md-4 mb-4"><div class="card"><span class="badge badge-home">Home Service</span><img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30"><div class="card-body"><h5>Body Polishing</h5><p class="price">₹3,000</p><button class="btn btn-custom book-btn" data-service="Body Polishing">Book Now</button></div></div></div>
+
+<div class="col-md-4 mb-4"><div class="card"><span class="badge badge-home">Home Service</span><img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35"><div class="card-body"><h5>Full Body Waxing</h5><p class="price">₹3,000</p><button class="btn btn-custom book-btn" data-service="Full Body Waxing">Book Now</button></div></div></div>
+
+</div>
+</div>
+
+<!-- Hair -->
+<div class="section">
+<h4>Hair Services</h4>
+<div class="row">
+
+<div class="col-md-4 mb-4"><div class="card"><span class="badge badge-home">Home Service</span><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"><div class="card-body"><h5>Hair Smoothing & Straightening</h5><p class="price">₹4,500</p><button class="btn btn-custom book-btn" data-service="Hair Smoothing & Straightening">Book Now</button></div></div></div>
+
+<div class="col-md-4 mb-4"><div class="card"><span class="badge badge-home">Home Service</span><img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e"><div class="card-body"><h5>Keratin Treatment</h5><p class="price">₹4,500</p><button class="btn btn-custom book-btn" data-service="Keratin Treatment">Book Now</button></div></div></div>
+
+<div class="col-md-4 mb-4"><div class="card"><span class="badge badge-home">Home Service</span><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f"><div class="card-body"><h5>Hair Cut</h5><p class="price">₹400</p><button class="btn btn-custom book-btn" data-service="Hair Cut">Book Now</button></div></div></div>
+
+<div class="col-md-4 mb-4"><div class="card"><span class="badge badge-home">Home Service</span><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"><div class="card-body"><h5>Hair Colour</h5><p class="price">₹2,500</p><button class="btn btn-custom book-btn" data-service="Hair Colour">Book Now</button></div></div></div>
+
+</div>
+</div>
+
+<!-- Other -->
+<div class="section">
+<h4>Other Services</h4>
+<div class="row">
+
+<div class="col-md-4 mb-4"><div class="card"><span class="badge badge-home">Home Service</span><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5"><div class="card-body"><h5>Manicure & Pedicure</h5><p class="price">₹2,000</p><button class="btn btn-custom book-btn" data-service="Manicure & Pedicure">Book Now</button></div></div></div>
+
+<div class="col-md-4 mb-4"><div class="card"><span class="badge badge-home">Home Service</span><img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30"><div class="card-body"><h5>Face Wax</h5><p class="price">₹500</p><button class="btn btn-custom book-btn" data-service="Face Wax">Book Now</button></div></div></div>
+
+<div class="col-md-4 mb-4"><div class="card"><span class="badge badge-home">Home Service</span><img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66"><div class="card-body"><h5>Eyebrow & Forehead</h5><p class="price">₹50</p><button class="btn btn-custom book-btn" data-service="Eyebrow & Forehead">Book Now</button></div></div></div>
+
+</div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer text-center p-4 mt-5">
+  <h5>AnnuMakeover</h5>
+  <p>Your trusted salon, now at home!</p>
+</footer>
+
+<script>
+  $(".book-btn").click(function() {
+    const service = $(this).data("service");
+    const message = `Hello Annu Gupta, I would like to book ${service} as a home service.`;
+    const phone = "917352712794";
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
+  });
+</script>
+
+</body>
+</html>
