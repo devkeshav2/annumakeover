@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback – AnnuMakeover</title>
+  <meta name="description" content="Share your experience with AnnuMakeover. We read every review!">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💄</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="navbar-brand">
+    <div class="brand-logo-mark">AM</div>
+    <div class="brand-text">
+      <span class="brand-name">Annu<em>Makeover</em></span>
+      <span class="brand-tagline">Premium Beauty Studio</span>
+    </div>
+  </a>
+  <div class="navbar-menu">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="customer-services.html" class="nav-link">Services</a>
+    <a href="feedback.html" class="nav-link active">Feedback</a>
+  </div>
+  <div class="navbar-cta">
+    <a href="admin-login.html" class="nav-admin-link">⚙ Admin</a>
+    <a href="https://wa.me/917352712794?text=Hi%20AnnuMakeover!%20I%27d%20like%20to%20book%20a%20service." class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">📲 Book Now</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+  <a href="index.html" class="mobile-menu-brand">
+    <div class="mobile-menu-logo-mark">AM</div>
+    <span class="mobile-menu-brand-name">Annu<em>Makeover</em></span>
+  </a>
+  <a href="index.html" class="mobile-nav-link">Home</a>
+  <a href="customer-services.html" class="mobile-nav-link">Services</a>
+  <a href="feedback.html" class="mobile-nav-link active">Feedback</a>
+  <div class="mobile-divider"></div>
+  <a href="https://wa.me/917352712794?text=Hi%20AnnuMakeover!%20I%27d%20like%20to%20book%20a%20service." class="mobile-wa-btn" target="_blank" rel="noopener">📲 Book on WhatsApp</a>
+  <a href="admin-login.html" class="mobile-admin-link">⚙ Admin Panel</a>
+</div>
+
+<!-- ═══════════════ PAGE HEADER ═══════════════ -->
+<div class="page-header">
+  <div class="container">
+    <div class="page-header-content">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Feedback</span>
+      </div>
+      <h1>Share Your Experience</h1>
+      <p>Your feedback helps us serve you better — we read every single review!</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ FEEDBACK FORM ═══════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="feedback-layout">
+
+      <!-- Form Card -->
+      <div class="form-card">
+
+        <!-- Success State (hidden until submitted) -->
+        <div class="success-state" id="successState">
+          <div class="success-icon">✓</div>
+          <h3 style="font-family:var(--font-heading);font-size:1.6rem;margin-bottom:10px;color:var(--text)">Thank You!</h3>
+          <p style="color:var(--text-mid);margin-bottom:28px;line-height:1.7">Your feedback has been received. We truly appreciate you taking the time to share your experience!</p>
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+            <a href="customer-services.html" class="btn btn-primary">Browse Services</a>
+            <a href="index.html" class="btn btn-outline">Back to Home</a>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div id="feedbackFormWrap">
+          <div style="margin-bottom:28px">
+            <h2 style="font-family:var(--font-heading);font-size:1.7rem;color:var(--text);margin-bottom:6px">Leave a Review</h2>
+            <p style="color:var(--text-light);font-size:0.88rem">Fields marked <span style="color:var(--primary)">*</span> are required.</p>
+          </div>
+          <form id="feedbackForm" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="fbName">Your Name <span style="color:var(--primary)">*</span></label>
+                <input class="form-control" id="fbName" type="text" placeholder="Priya Sharma" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fbPhone">Phone Number <span style="color:var(--primary)">*</span></label>
+                <input class="form-control" id="fbPhone" type="tel" placeholder="+91 98765 43210" required autocomplete="tel">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fbEmail">Email <span style="color:var(--text-light);font-weight:400">(optional)</span></label>
+                <input class="form-control" id="fbEmail" type="email" placeholder="you@email.com" autocomplete="email">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fbService">Service Availed <span style="color:var(--primary)">*</span></label>
+                <select class="form-control" id="fbService" required>
+                  <option value="" disabled selected>Select a service…</option>
+                  <optgroup label="💄 Makeup">
+                    <option>Reception Makeup</option>
+                    <option>Bridal Makeup</option>
+                    <option>Party Makeup</option>
+                  </optgroup>
+                  <optgroup label="✨ Facial">
+                    <option>Facial (General)</option>
+                    <option>O3+ Facial</option>
+                    <option>Lotus Gold Facial</option>
+                    <option>Kanpeki Facial</option>
+                    <option>Fruits Facial</option>
+                    <option>Aroma Facial</option>
+                    <option>VLCC Facial</option>
+                  </optgroup>
+                  <optgroup label="🌸 De-Tan">
+                    <option>Raaga De-Tan</option>
+                    <option>O3+ De-Tan</option>
+                    <option>VLCC De-Tan</option>
+                  </optgroup>
+                  <optgroup label="💆 Body">
+                    <option>Body Polishing</option>
+                    <option>Full Body Waxing</option>
+                  </optgroup>
+                  <optgroup label="💇 Hair">
+                    <option>Hair Smoothing &amp; Straightening</option>
+                    <option>Keratin Treatment</option>
+                    <option>Hair Cut</option>
+                    <option>Hair Colour</option>
+                  </optgroup>
+                  <optgroup label="💅 Other">
+                    <option>Manicure &amp; Pedicure</option>
+                    <option>Face Wax</option>
+                    <option>Eyebrow &amp; Forehead</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Your Rating <span style="color:var(--primary)">*</span></label>
+                <div class="star-rating" role="radiogroup" aria-label="Rating">
+                  <input type="radio" id="star5" name="rating" value="5">
+                  <label for="star5" title="5 – Excellent">★</label>
+                  <input type="radio" id="star4" name="rating" value="4">
+                  <label for="star4" title="4 – Good">★</label>
+                  <input type="radio" id="star3" name="rating" value="3">
+                  <label for="star3" title="3 – Average">★</label>
+                  <input type="radio" id="star2" name="rating" value="2">
+                  <label for="star2" title="2 – Poor">★</label>
+                  <input type="radio" id="star1" name="rating" value="1">
+                  <label for="star1" title="1 – Terrible">★</label>
+                </div>
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="fbMessage">Your Review <span style="color:var(--primary)">*</span></label>
+                <textarea class="form-control" id="fbMessage" rows="5" placeholder="Tell us about your experience at AnnuMakeover…" required></textarea>
+              </div>
+            </div>
+            <div id="formError" style="display:none;color:#dc2626;font-size:0.85rem;margin-top:12px;padding:10px 14px;background:rgba(220,38,38,0.07);border-radius:8px"></div>
+            <div style="margin-top:22px">
+              <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center">
+                Submit Feedback ✦
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Info Sidebar -->
+      <div class="info-card">
+        <div class="info-card-title">Get in Touch</div>
+        <div class="info-card-sub">We'd love to hear from you or answer any questions.</div>
+        <div class="info-item">
+          <span class="info-item-icon">📱</span>
+          <div>
+            <div class="info-item-label">WhatsApp</div>
+            <div class="info-item-val">+91 98765 43210</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-item-icon">📍</span>
+          <div>
+            <div class="info-item-label">Studio Location</div>
+            <div class="info-item-val">Your Studio Address,<br>City, State – 000000</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-item-icon">🕐</span>
+          <div>
+            <div class="info-item-label">Working Hours</div>
+            <div class="info-item-val">Mon–Sat: 9 AM – 8 PM<br>Sunday: 10 AM – 6 PM</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-item-icon">💬</span>
+          <div>
+            <div class="info-item-label">Quick Response</div>
+            <div class="info-item-val">We reply within a few hours</div>
+          </div>
+        </div>
+        <a href="https://wa.me/917352712794?text=Hi%20AnnuMakeover!" class="btn btn-whatsapp" style="width:100%;justify-content:center;margin-top:8px" target="_blank" rel="noopener">
+          📲 Chat on WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Annu<em>Makeover</em></div>
+        <div class="footer-brand-tag">Premium Beauty Studio</div>
+        <p class="footer-desc">Transforming beauty with precision, passion, and premium care. Your trusted beauty partner for every occasion.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+          <a href="#" class="social-btn" aria-label="Facebook">📘</a>
+          <a href="https://wa.me/917352712794" class="social-btn" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="customer-services.html" class="footer-link">Services</a>
+          <a href="feedback.html" class="footer-link">Feedback</a>
+          <a href="admin-login.html" class="footer-link">Admin Panel</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <div class="footer-links">
+          <a href="customer-services.html?cat=makeup" class="footer-link">Makeup</a>
+          <a href="customer-services.html?cat=facial" class="footer-link">Facial &amp; De-Tan</a>
+          <a href="customer-services.html?cat=hair" class="footer-link">Hair Services</a>
+          <a href="customer-services.html?cat=body" class="footer-link">Body Services</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">📍</span>
+          <span>Your Studio Address,<br>City, State – 000000</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">📞</span>
+          <a href="tel:+917352712794">+91 98765 43210</a>
+        </div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">🕐</span>
+          <span>Mon–Sat: 9 AM – 8 PM<br>Sun: 10 AM – 6 PM</span>
+        </div>
+        <a href="https://wa.me/917352712794" class="footer-wa-btn" target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 AnnuMakeover. All rights reserved.</span>
+      <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/917352712794" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+<div class="toast-container" aria-live="polite"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var form      = document.getElementById('feedbackForm');
+  var errorEl   = document.getElementById('formError');
+
+  form && form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errorEl.style.display = 'none';
+
+    var name    = document.getElementById('fbName').value.trim();
+    var phone   = document.getElementById('fbPhone').value.trim();
+    var service = document.getElementById('fbService').value;
+    var message = document.getElementById('fbMessage').value.trim();
+    var rating  = document.querySelector('input[name="rating"]:checked');
+
+    if (!name || !phone || !service || !message || !rating) {
+      errorEl.textContent = 'Please fill in all required fields and select a rating.';
+      errorEl.style.display = 'block';
+      return;
+    }
+
+    AM.addFeedback({
+      name:    name,
+      phone:   phone,
+      email:   document.getElementById('fbEmail').value.trim(),
+      service: service,
+      rating:  parseInt(rating.value),
+      message: message,
+    });
+
+    document.getElementById('feedbackFormWrap').style.display = 'none';
+    var ss = document.getElementById('successState');
+    if (ss) ss.style.display = 'block';
+  });
+});
+</script>
+</body>
+</html>

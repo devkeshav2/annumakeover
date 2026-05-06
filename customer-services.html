@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services – AnnuMakeover</title>
+  <meta name="description" content="Browse all AnnuMakeover beauty services. Tap WhatsApp to book any service instantly.">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💄</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="navbar-brand">
+    <div class="brand-logo-mark">AM</div>
+    <div class="brand-text">
+      <span class="brand-name">Annu<em>Makeover</em></span>
+      <span class="brand-tagline">Premium Beauty Studio</span>
+    </div>
+  </a>
+  <div class="navbar-menu">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="customer-services.html" class="nav-link active">Services</a>
+    <a href="feedback.html" class="nav-link">Feedback</a>
+  </div>
+  <div class="navbar-cta">
+    <a href="admin-login.html" class="nav-admin-link">⚙ Admin</a>
+    <a href="https://wa.me/917352712794?text=Hi%20AnnuMakeover!%20I%27d%20like%20to%20book%20a%20service." class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">📲 Book Now</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+  <a href="index.html" class="mobile-menu-brand">
+    <div class="mobile-menu-logo-mark">AM</div>
+    <span class="mobile-menu-brand-name">Annu<em>Makeover</em></span>
+  </a>
+  <a href="index.html" class="mobile-nav-link">Home</a>
+  <a href="customer-services.html" class="mobile-nav-link active">Services</a>
+  <a href="feedback.html" class="mobile-nav-link">Feedback</a>
+  <div class="mobile-divider"></div>
+  <a href="https://wa.me/917352712794?text=Hi%20AnnuMakeover!%20I%27d%20like%20to%20book%20a%20service." class="mobile-wa-btn" target="_blank" rel="noopener">📲 Book on WhatsApp</a>
+  <a href="admin-login.html" class="mobile-admin-link">⚙ Admin Panel</a>
+</div>
+
+<!-- ═══════════════ PAGE HEADER ═══════════════ -->
+<div class="page-header">
+  <div class="container">
+    <div class="page-header-content">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Services</span>
+      </div>
+      <h1>Our Services</h1>
+      <p>Browse our complete menu — tap 📲 on any card to book instantly via WhatsApp</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ SERVICES ═══════════════ -->
+<section class="section">
+  <div class="container">
+
+    <!-- Filter Bar -->
+    <div class="filter-bar" id="filterBar" role="tablist" aria-label="Service categories">
+      <button class="filter-btn active" data-cat="all" role="tab" aria-selected="true">✦ All Services</button>
+      <button class="filter-btn" data-cat="makeup" role="tab" aria-selected="false">💄 Makeup</button>
+      <button class="filter-btn" data-cat="facial" role="tab" aria-selected="false">✨ Facial</button>
+      <button class="filter-btn" data-cat="detan"  role="tab" aria-selected="false">🌸 De-Tan</button>
+      <button class="filter-btn" data-cat="body"   role="tab" aria-selected="false">💆 Body</button>
+      <button class="filter-btn" data-cat="hair"   role="tab" aria-selected="false">💇 Hair</button>
+      <button class="filter-btn" data-cat="other"  role="tab" aria-selected="false">💅 Other</button>
+    </div>
+
+    <!-- Services rendered by JS -->
+    <div id="servicesContainer"></div>
+  </div>
+</section>
+
+<!-- ═══════════════ CTA ═══════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <div class="cta-badge">📲 Instant Booking</div>
+      <h2 class="cta-title">Ready to Book?</h2>
+      <p class="cta-subtitle">Tap the WhatsApp icon on any service, or reach us directly to confirm your appointment.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/917352712794?text=Hi%20AnnuMakeover!%20I%27d%20like%20to%20book%20a%20service." class="btn btn-white btn-lg" target="_blank" rel="noopener">📲 Book on WhatsApp</a>
+        <a href="feedback.html" class="btn btn-outline-white btn-lg">Leave Feedback</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Annu<em>Makeover</em></div>
+        <div class="footer-brand-tag">Premium Beauty Studio</div>
+        <p class="footer-desc">Transforming beauty with precision, passion, and premium care. Your trusted beauty partner for every occasion.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+          <a href="#" class="social-btn" aria-label="Facebook">📘</a>
+          <a href="https://wa.me/917352712794" class="social-btn" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="customer-services.html" class="footer-link">Services</a>
+          <a href="feedback.html" class="footer-link">Feedback</a>
+          <a href="admin-login.html" class="footer-link">Admin Panel</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <div class="footer-links">
+          <a href="customer-services.html?cat=makeup" class="footer-link">Makeup</a>
+          <a href="customer-services.html?cat=facial" class="footer-link">Facial &amp; De-Tan</a>
+          <a href="customer-services.html?cat=hair" class="footer-link">Hair Services</a>
+          <a href="customer-services.html?cat=body" class="footer-link">Body Services</a>
+          <a href="customer-services.html?cat=other" class="footer-link">Nail &amp; Other</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">📍</span>
+          <span>Your Studio Address,<br>City, State – 000000</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">📞</span>
+          <a href="tel:+917352712794">+91 98765 43210</a>
+        </div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">🕐</span>
+          <span>Mon–Sat: 9 AM – 8 PM<br>Sun: 10 AM – 6 PM</span>
+        </div>
+        <a href="https://wa.me/917352712794" class="footer-wa-btn" target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 AnnuMakeover. All rights reserved.</span>
+      <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/917352712794" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+<div class="toast-container" aria-live="polite"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/script.js"></script>
+<script>
+/* ── Render all services from localStorage ── */
+document.addEventListener('DOMContentLoaded', function () {
+  renderAllServices();
+
+  /* Pre-select category from URL param */
+  var cat = new URLSearchParams(location.search).get('cat');
+  if (cat) {
+    var btn = document.querySelector('.filter-btn[data-cat="' + cat + '"]');
+    if (btn) btn.click();
+  }
+});
+
+function renderAllServices() {
+  var services = AM.getServices().filter(function (s) { return s.active; });
+  var container = document.getElementById('servicesContainer');
+  if (!container) return;
+
+  var catOrder = ['makeup', 'facial', 'detan', 'body', 'hair', 'other'];
+  var html = '';
+
+  catOrder.forEach(function (catKey) {
+    var catSvcs = services.filter(function (s) { return s.category === catKey; });
+    if (!catSvcs.length) return;
+    var cat = AM.CATEGORIES[catKey] || { label: catKey, icon: '✨' };
+
+    html += '<div class="cat-section" id="' + catKey + '" data-cat="' + catKey + '" style="margin-bottom:52px">' +
+      '<div style="display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid var(--border-light)">' +
+        '<div style="width:46px;height:46px;background:linear-gradient(135deg,rgba(201,24,74,0.1),rgba(212,168,83,0.1));border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0">' + cat.icon + '</div>' +
+        '<div>' +
+          '<div style="font-family:var(--font-heading);font-size:1.35rem;color:var(--text);line-height:1.2">' + cat.label + '</div>' +
+          '<div style="font-size:0.78rem;color:var(--text-light);margin-top:2px">' + catSvcs.length + ' service' + (catSvcs.length > 1 ? 's' : '') + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="services-grid">';
+
+    catSvcs.forEach(function (s) {
+      html += '<div class="service-card fade-up" data-cat="' + catKey + '">' +
+          '<div class="service-icon">' + cat.icon + '</div>' +
+          '<div class="service-name">' + esc(s.name) + '</div>' +
+          '<p class="service-desc">' + esc(s.description) + '</p>' +
+          '<div class="service-footer">' +
+            '<div class="service-price">₹' + Number(s.price).toLocaleString('en-IN') + '<small>per session</small></div>' +
+            '<a href="' + AM.waLink(s.name, s.price) + '" class="btn-book" target="_blank" rel="noopener" title="Book ' + esc(s.name) + ' on WhatsApp" aria-label="Book via WhatsApp">📲</a>' +
+          '</div>' +
+        '</div>';
+    });
+    html += '</div></div>';
+  });
+
+  container.innerHTML = html;
+
+  /* Trigger fade-up observer for dynamically inserted cards */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  container.querySelectorAll('.fade-up').forEach(function (el) { io.observe(el); });
+}
+
+function esc(str) {
+  return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+</body>
+</html>

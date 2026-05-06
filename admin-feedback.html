@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin – Feedback | AnnuMakeover</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar-header">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:3px">
+        <div class="brand-logo-mark" style="width:30px;height:30px;border-radius:8px;font-size:11px;flex-shrink:0;box-shadow:none">AM</div>
+        <div class="admin-sidebar-logo">AnnuMakeover</div>
+      </div>
+      <div class="admin-sidebar-sub">Admin Panel</div>
+    </div>
+    <nav class="admin-nav">
+      <div class="admin-nav-section">Dashboard</div>
+      <a href="admin-services.html" class="admin-nav-item">
+        <span class="admin-nav-icon">✨</span> Services
+      </a>
+      <a href="admin-feedback.html" class="admin-nav-item active">
+        <span class="admin-nav-icon">💬</span> Feedback
+      </a>
+      <div class="admin-nav-section">Site</div>
+      <a href="customer-services.html" class="admin-nav-item" target="_blank">
+        <span class="admin-nav-icon">👁</span> View Website
+      </a>
+    </nav>
+    <div class="admin-sidebar-footer">
+      <button class="btn btn-outline btn-sm" style="width:100%;justify-content:center;border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.55)" onclick="adminLogout()">
+        Sign Out
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div class="admin-page-title">Customer Feedback</div>
+      <div class="admin-topbar-right">
+        <div class="admin-user-badge"><div class="admin-user-dot"></div> Admin</div>
+      </div>
+    </div>
+
+    <!-- Stat Cards -->
+    <div class="admin-stat-cards">
+      <div class="admin-stat-card">
+        <div class="admin-stat-icon pink">💬</div>
+        <div>
+          <div class="admin-stat-num" id="statFeedback">–</div>
+          <div class="admin-stat-lbl">Total Feedback</div>
+        </div>
+      </div>
+      <div class="admin-stat-card">
+        <div class="admin-stat-icon green">✅</div>
+        <div>
+          <div class="admin-stat-num" id="statReplied">–</div>
+          <div class="admin-stat-lbl">Replied</div>
+        </div>
+      </div>
+      <div class="admin-stat-card">
+        <div class="admin-stat-icon gold">✨</div>
+        <div>
+          <div class="admin-stat-num" id="statTotal">–</div>
+          <div class="admin-stat-lbl">Total Services</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Row -->
+    <div class="admin-card" style="padding:16px 26px;margin-bottom:14px">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+        <button class="filter-btn active" onclick="filterFeedback('all', this)" style="padding:8px 18px">All</button>
+        <button class="filter-btn" onclick="filterFeedback('new', this)" style="padding:8px 18px">New</button>
+        <button class="filter-btn" onclick="filterFeedback('replied', this)" style="padding:8px 18px">Replied</button>
+      </div>
+    </div>
+
+    <!-- Feedback List -->
+    <div id="feedbackList"></div>
+
+  </main>
+</div>
+
+<!-- Reply Modal -->
+<div class="modal-overlay" id="replyModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Reply to Feedback</div>
+      <button class="modal-close" onclick="closeReplyModal()">&times;</button>
+    </div>
+    <input type="hidden" id="replyId">
+    <div class="form-group" style="margin-bottom:20px">
+      <label class="form-label" for="replyText">Your Reply</label>
+      <textarea class="form-control" id="replyText" rows="5" placeholder="Write a thoughtful reply to the customer…"></textarea>
+    </div>
+    <div style="display:flex;gap:12px;justify-content:flex-end">
+      <button class="btn btn-outline btn-sm" onclick="closeReplyModal()">Cancel</button>
+      <button class="btn btn-primary btn-sm" onclick="submitReply()">Send Reply</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/admin.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  requireAdmin();
+  renderFeedbackList();
+  updateAllStats();
+});
+
+function updateAllStats() {
+  var feedback = AM.getFeedback();
+  var services = AM.getServices();
+  var statFb = document.getElementById('statFeedback');
+  var statRp = document.getElementById('statReplied');
+  var statTl = document.getElementById('statTotal');
+  if (statFb) statFb.textContent = feedback.length;
+  if (statRp) statRp.textContent = feedback.filter(function (f) { return f.adminReply; }).length;
+  if (statTl) statTl.textContent = services.length;
+}
+
+var currentFilter = 'all';
+function filterFeedback(type, btn) {
+  currentFilter = type;
+  document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+  renderFeedbackListFiltered();
+}
+
+function renderFeedbackListFiltered() {
+  var all = AM.getFeedback();
+  var list = all.filter(function (f) {
+    if (currentFilter === 'new')     return !f.adminReply;
+    if (currentFilter === 'replied') return !!f.adminReply;
+    return true;
+  });
+  var container = document.getElementById('feedbackList');
+  if (!container) return;
+  if (!list.length) {
+    container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">💬</div><h3>No feedback here</h3><p>Nothing to show for this filter.</p></div>';
+    return;
+  }
+  container.innerHTML = list.map(function (f) {
+    var stars = '★'.repeat(f.rating || 5) + '☆'.repeat(5 - (f.rating || 5));
+    return '<div class="feedback-item" data-id="' + f.id + '">' +
+      '<div class="feedback-header">' +
+        '<div>' +
+          '<div class="feedback-author">' + escHtml(f.name) + '</div>' +
+          '<div class="feedback-meta">📞 ' + escHtml(f.phone || '—') + ' &nbsp;·&nbsp; 📅 ' + AM.formatDate(f.date) + '</div>' +
+        '</div>' +
+        '<div style="display:flex;align-items:center;gap:10px;flex-shrink:0">' +
+          '<span style="color:var(--gold);font-size:0.88rem">' + stars + '</span>' +
+          '<span class="badge ' + (f.adminReply ? 'badge-replied' : 'badge-new') + '">' + (f.adminReply ? 'Replied' : 'New') + '</span>' +
+        '</div>' +
+      '</div>' +
+      '<div style="margin-bottom:10px"><span class="feedback-tag">' + (f.service ? escHtml(f.service) : 'General') + '</span></div>' +
+      '<p class="feedback-text">' + escHtml(f.message) + '</p>' +
+      (f.adminReply
+        ? '<div class="admin-reply-box"><div class="admin-reply-label">Admin Reply</div><div class="admin-reply-text">' + escHtml(f.adminReply) + '</div></div>'
+        : '') +
+      '<div class="feedback-actions">' +
+        '<button class="action-btn action-reply" onclick="openReplyModal(' + f.id + ')">' + (f.adminReply ? 'Edit Reply' : '💬 Reply') + '</button>' +
+        '<button class="action-btn action-delete" onclick="deleteFeedbackItem(' + f.id + ')">Delete</button>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+// Override render to use filter
+var _origRender = window.renderFeedbackList;
+window.renderFeedbackList = function () {
+  renderFeedbackListFiltered();
+  updateAllStats();
+};
+
+function deleteFeedbackItem(id) {
+  if (!confirm('Delete this feedback?')) return;
+  AM.deleteFeedback(id);
+  renderFeedbackListFiltered();
+  updateAllStats();
+  showToast('Deleted.');
+}
+
+function escHtml(str) {
+  return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+</body>
+</html>
